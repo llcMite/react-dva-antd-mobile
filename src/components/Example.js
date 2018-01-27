@@ -1,14 +1,28 @@
-import React from 'react';
+import React ,{Component}from 'react';
+import {mapStateToProps} from '../common';
+const key='Example';
 
-const Example = () => {
-  return (
-    <div>
-      Example
-    </div>
-  );
-};
+class Example extends Component{
+  constructor(props){
+    super(props)
+    this.state={
 
-Example.propTypes = {
-};
+    }
+  }
+  componentWillMount(){
+  	this.init()
+  }
+  init(){
 
-export default Example;
+  }
+  render(){
+  	const {}=this.state;
+  	const {}=this.props;
+  	return (<div>例子</div>)
+  }
+}
+
+
+
+
+export default mapStateToProps(key)(Example);

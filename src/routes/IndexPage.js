@@ -1,17 +1,41 @@
-import React from 'react';
+import React, {Component}from 'react';
 import { connect } from 'dva';
-import styles from './IndexPage.css';
+import styles from './IndexPage.less';
 import {Button} from 'antd-mobile';
 
-function IndexPage() {
-  return (
-    <div className={styles.normal}>
-      <Button>按钮</Button>
-    </div>
-  );
+const key='IndexPage'
+class IndexPage extends Component{
+	constructor(props){
+       super(props)
+       this.state={
+
+       }
+	}
+
+	componentWillMount(){
+		this.init();
+	}
+
+	init(){
+		this.props.dispatch({
+			type:`${key}/fetchlist`,
+			payload:{
+				backup(){
+
+				}
+			}
+		})
+	}
+
+	render(){
+        const {}=this.state;
+        const {}=this.props;
+
+		return(<div className={styles.wrap}>
+             <Button>按钮</Button>
+			</div>)
+	}
 }
 
-IndexPage.propTypes = {
-};
-
-export default connect()(IndexPage);
+//state里有所有model的数据然后返回即注入到该组件中
+export default connect((state)=>{return state[key]})(IndexPage);
