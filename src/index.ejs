@@ -3,9 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dva Demo</title>
+  <title>react-dva-antd-mobile</title>
   <link rel="stylesheet" href="/index.css" />
 </head>
+<script>
+	init(window,750,100)
+	function init (win, screenWith, remUnit) {
+		var docEl = document.documentElement,
+			resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+			recalc = function() {
+				var clientWidth = docEl.clientWidth;
+				if(!clientWidth) return;
+				if(clientWidth >= screenWith) {
+					docEl.style.fontSize = remUnit + 'px';
+				} else {
+					docEl.style.fontSize = remUnit * (clientWidth / screenWith) + 'px';
+				}
+		};
+		if(!document.addEventListener) return;
+		win.addEventListener(resizeEvt, recalc, false);
+		document.addEventListener('DOMContentLoaded', recalc, false);
+	}
+</script>
 <body>
   <div id="root"></div>
 </body>

@@ -9,14 +9,14 @@ export default {
   },
 
   subscriptions: {
-    setup({ dispatch, history }) {  // eslint-disable-line
+    setup({ dispatch, history }) {  
     },
   },
 
   effects: {
-    *fetchlist({ payload:{backup}}, { call, put }) {  // eslint-disable-line
+    *fetchlist({ payload:{backup}}, { call, put }) {  
       const {data ,errmsg,errcode}=yield call(request,{
-        url:`${urlfix}/sales/tenantstore/list?page=1&size=1`,
+        url:`${urlfix}/sales/tenant/pc/detaillist?range=PAGE&page=1&size=10`,
         options:{
           methods:'get'
         }
